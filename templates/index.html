@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<div>
+    GAE Datastore
+</div>
+<form action="/put/" method="post">
+<table>
+    <tr>
+        <td>
+                <label for="key">Key (optional) : </label>
+        </td>
+        <td>
+                <input type="text" name="key"></input>
+        </td>
+    </tr>
+    <tr>
+        <td>
+                <label for="hash">Value : </label>
+        </td>
+        <td>
+                <input type="text" name="value"></input>
+        </td>
+   </tr>
+   <tr>
+        <td>
+            <input type="submit" value="Store!">
+        </td>
+   </tr>
+</table>
+</form>
+
+{% if latest_bands %}
+
+<h2>Recent bands<br /></h2>
+
+<table style="width: 100%">
+    <tr>
+        {% for band in latest_bands %}
+        <td style="width: 20%">
+            {% if band and band.name %}
+                <a href="//{{ band.key.id }}">{{ band.name }}</a>
+            {% endif %}
+        </td>
+        {% endfor %}
+    </tr>
+</table>
+{% endif %}
+
+{% endblock %}

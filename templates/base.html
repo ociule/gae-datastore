@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+        <title>{% block title %}{% endblock %}</title>
+        
+        <style type="text/css">
+            td { vertical-align: top;}
+        </style>
+    </head>
+    <body>
+        {% block flash %}
+            {% if flash %}
+                {% for flash_item in flash %}
+                    <div class="flash">
+                        {{ flash_item }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endblock %}
+    	{% block header %}
+    	{% if user %}
+    	<div align="right">Logged in as {{ user.nickname }} - 
+          <a href="/edituser/{{ user.email }}">Edit My Profile</a> -
+    	  <a href="{{log_in_out_url}}">Log out</a> </div>
+    	{% endif %}
+    	{% endblock %}
+		{% block content %}{% endblock %}
+		{% block footer %}
+		<hr/>
+		{% endblock %}
+		<script type="text/javascript">
+        //var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        //document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+        //var pageTracker = _gat._getTracker("");
+        //pageTracker._trackPageview();
+        </script>
+    </body>
+</html>
