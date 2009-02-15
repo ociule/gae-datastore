@@ -28,4 +28,4 @@ class PutHandler(BaseRequestHandler):
       key = "a"+md5.new(str(random.random())).hexdigest()
       record = Record(key_name = key, value = self.request.get('value'))
     record.put()
-    self.response.out.write("OK")
+    self.response.out.write(key)
