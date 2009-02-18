@@ -4,7 +4,7 @@ h2. Really **simple** to use!
 
 To **store** a value, just post it to /put/_key_ as the _value_ parameter.
 * The key is optional, a random one will be generated for you if missing (you'll get it back in the answer).
-* Due AppEngine datastore limitations, the key must start with a letter. 
+* Due to AppEngine datastore limitations, the key must start with a letter. 
 * Alternatively, post the key in a _key_ Post parameter. If you do both (key in URL and Post), the URL takes precedence.
 * If the key already exists, the value will be updated.
 
